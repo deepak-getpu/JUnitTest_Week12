@@ -3,6 +3,8 @@ package com.promineotech;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.spy;
 
 import java.util.stream.Stream;
 
@@ -59,6 +61,15 @@ class TestDemoJUnitTest {
 		}
 		assertThat(TestDemo.isEven(4)).isEqualTo(true);
 		assertThat(TestDemo.isEven(9)).isEqualTo(false);
+	}
+	
+	@Test
+	void assertThatNumberSquaredIsCorrect() {
+		TestDemo mockDemo = spy(testDemo);
+		doReturn(5).when(mockDemo).getRandomInt();
+		int fiveSquared = mockDemo.randomNumberSquared();
+		assertThat(fiveSquared).isEqualTo(25);
+
 	}
 	
 }
