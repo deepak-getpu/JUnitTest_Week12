@@ -2,16 +2,19 @@ package com.promineotech;
 
 import java.util.Random;
 
+import com.google.common.annotations.VisibleForTesting;
+
 public class TestDemo {
 	
-	public static int addPositive(int a, int b) {
+	@VisibleForTesting
+	int addPositive(int a, int b) {
 	if(a > 0 && b > 0) {
 		return a + b;
 	} else 
 		throw new IllegalArgumentException("Both parameters must be positive.");
 	}
 	
-	public static boolean isEven(int a) {
+	boolean isEven(int a) {
 		if(a%2==0) { 
 			return true;
 		} else {
@@ -19,7 +22,8 @@ public class TestDemo {
 		}		
 	}
 	
-	public int  randomNumberSquared() {
+	@VisibleForTesting
+	int  randomNumberSquared() {
 		 return (getRandomInt() * getRandomInt());
 	}
 
@@ -28,7 +32,7 @@ public class TestDemo {
 		return random.nextInt(10) + 1; 
 	}
 	
-	private int randomNumberSquare() {
+	int randomNumberSquare() {
 		return (getRandomInt() * getRandomInt());
 	}
 }
